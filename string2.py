@@ -17,6 +17,9 @@
 # Return the resulting string.
 
 
+import math
+
+
 def verbing(s):
     """Creating a verb out of a given string."""
     if s.endswith('ing'):
@@ -38,12 +41,14 @@ def verbing(s):
 def not_bad(s):
     """Changes 'not bad' statements to 'good' if they exist in a string"""
     not_index = s.find('not')
-    bad_index = s.find('bad') + 3
-    good_index = s[not_index:bad_index]
-    if not_index or bad_index < 0:
+    bad_index = s.find('bad')
+    good_index = s[not_index:bad_index+3]
+    if not_index > bad_index:
         return s
     elif not_index and bad_index >= 0:
         s = s.replace(good_index, 'good')
+        return s
+    elif not_index or bad_index < 0:
         return s
 
 
@@ -54,9 +59,21 @@ def not_bad(s):
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
+
+
 def front_back(a, b):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Creates a new string from two provided strings in the format
+
+    a-front + b-front + a-back + b-back."""
+    a_slice = int(math.ceil(len(a)/2.0))
+    b_slice = int(math.ceil(len(b)/2.0))
+    a_front = a[:a_slice]
+    b_front = b[:b_slice]
+    a_back = a[a_slice:]
+    b_back = b[b_slice:]
+    new_string = a_front + b_front + a_back + b_back
+
+    return new_string
 
 
 # Provided simple test() function used in main() to print
