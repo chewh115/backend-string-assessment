@@ -59,10 +59,15 @@ def fix_start(s):
     first letter."""
     s = list(s)
     first_letter = s[0]
-    new_s = s[1:]
-    for letter in new_s:
+    s = s[1:]
+    new_s = [first_letter]
+    for letter in s:
         if letter == first_letter:
-            letter.replace(letter, '*')
+            letter = letter.replace(letter, '*')
+            new_s.append(letter)
+        else:
+            new_s.append(letter)
+    new_s = ''.join(new_s)
     return new_s
 
 
