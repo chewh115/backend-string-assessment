@@ -64,13 +64,8 @@ def front_back(a, b):
     a-front + b-front + a-back + b-back."""
     a_slice = int(math.ceil(len(a)/2.0))
     b_slice = int(math.ceil(len(b)/2.0))
-    a_front = a[:a_slice]
-    b_front = b[:b_slice]
-    a_back = a[a_slice:]
-    b_back = b[b_slice:]
-    new_string = a_front + b_front + a_back + b_back
 
-    return new_string
+    return a[:a_slice] + b[:b_slice] + a[a_slice:] + b[b_slice:]
 
 
 # Provided simple test() function used in main() to print
