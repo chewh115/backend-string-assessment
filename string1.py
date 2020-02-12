@@ -57,18 +57,7 @@ def fix_start(s):
     """Replace any instance of the first letter in a word with * after the
 
     first letter."""
-    s = list(s)
-    first_letter = s[0]
-    s = s[1:]
-    new_s = [first_letter]
-    for letter in s:
-        if letter == first_letter:
-            letter = letter.replace(letter, '*')
-            new_s.append(letter)
-        else:
-            new_s.append(letter)
-    new_s = ''.join(new_s)
-    return new_s
+    return s[0] + s[1:].replace(s[0], '*')
 
 
 # D. MixUp
