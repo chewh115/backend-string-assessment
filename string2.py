@@ -17,9 +17,6 @@
 # Return the resulting string.
 
 
-import math
-
-
 def verbing(s):
     """Creating a verb out of a given string."""
     if s.endswith('ing'):
@@ -62,8 +59,8 @@ def front_back(a, b):
     """Creates a new string from two provided strings in the format
 
     a-front + b-front + a-back + b-back."""
-    a_slice = int(math.ceil(len(a)/2.0))
-    b_slice = int(math.ceil(len(b)/2.0))
+    a_slice = int(len(a)/2) + len(a) % 2
+    b_slice = int(len(b)/2) + len(b) % 2
 
     return a[:a_slice] + b[:b_slice] + a[a_slice:] + b[b_slice:]
 
