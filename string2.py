@@ -43,9 +43,7 @@ def not_bad(s):
     not_index = s.find('not')
     bad_index = s.find('bad')
     good_index = s[not_index:bad_index+3]
-    if not_index > bad_index:
-        return s
-    elif not_index and bad_index >= 0:
+    if not_index >= 0 and bad_index >= 0 and not_index < bad_index:
         s = s.replace(good_index, 'good')
         return s
     elif not_index or bad_index < 0:
