@@ -69,9 +69,7 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
     """Create a new string with the first 2 letters of a and b swapped."""
-    new_a = b[0:2] + a[2:]
-    new_b = a[0:2] + b[2:]
-    return new_a + ' ' + new_b
+    return (b[0:2] + a[2:]) + ' ' + (a[0:2] + b[2:])
 
 
 # Provided simple test() function used in main() to print
